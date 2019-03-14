@@ -1,2 +1,2 @@
 # first workout assignment
-# completed worktou1
+# completed workout1
