@@ -1,0 +1,21 @@
+Package: binomial
+Type: Package
+Title: Binomial
+Version: 0.1.0
+Author@R: person("Fan", "Chenganji", email = "fan.bear@berkeley.edy", role = c("aut", "cre"))
+Description: Provides functions for calculating probabilities of a Binomial random variable, 
+    and related calculations such as the probability distribution, the expected value, variance, etc.
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Collate: 
+    bin.R
+    check.R
+    summary-measures.R
+Suggests: 
+    knitr, 
+    rmarkdown, 
+    testthat
+RoxygenNote: 6.1.1
+VignetteBuilder: knitr
+Depends:ggplot2

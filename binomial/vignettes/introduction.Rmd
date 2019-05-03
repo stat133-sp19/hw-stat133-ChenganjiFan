@@ -1,0 +1,79 @@
+---
+title: "introduction"
+author: "Chenganji Fan"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(binomial)
+```
+
+## binomial
+
+The package "binomial" is an implementation for for calculating probabilities of a Binomial random variable, and related calculations such as the probability distribution, the expected value, variance, etc.
+Also there is plot and print implemented so the users can easily visualize the distribution.
+
+
+## Calculate counts of total possibilities and the probability of binomial
+
+User can always use bin_choose() and bin_probability(). Those two function operates the same as choose() and dbinom(). bin_choose() takees in trials and prob as argument, and bin_probability() has three arguments : success, trials, prob.
+
+```{r}
+bin_choose(5,0.5)
+bin_probability(1, 5, 0.5)
+```
+
+## Calculate distribution and plot it
+
+the package makes it really easy to visualize the distribution by table and plot. User only need to implement trials and prob as argument of functions, and the distribution table will show. By using plot(), user can visualize the distribution even better by generating a barplot.
+
+```{r}
+bin <- bin_distribution(5,0.5)
+bin
+plot(bin)
+```
+
+## Calculate the cumulative probability and plot it
+
+in case the user want to see the cumulative probility changes and a plot with single line instead of barplot. the package also provides bin_cumulative() that generates a table with sucess, prob, cumulative. and then user can graph it by calling plot(), which will generate a simple plot that shows the trend of cumulative probability
+
+```{r}
+bin1 <- bin_cumulative(5,0.5)
+bin1
+plot(bin1)
+```
+
+##  Set up your own variable
+
+User can create their own variable, and the package will provide description of the variable as well as summary of it.
+
+```{r}
+var <- bin_variable(5,0.5)
+var
+varsum <- summary(var)
+varsum
+```
+
+## basic function package also provides
+
+the package provides simple function that calculate mean, variance, mode, skewness, kurtosis for binomial. Users can directly use them if wish to.
+
+```{r}
+bin_mean(10, 0.3)
+bin_variance(10, 0.3)
+bin_mode(10, 0.3)
+bin_skewness(10, 0.3)
+bin_kurtosis(10, 0.3)
+```
+
