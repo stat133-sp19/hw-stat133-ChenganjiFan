@@ -1,3 +1,4 @@
+#' @import ggplot2
 library(ggplot2)
 
 #'@title bin_choose
@@ -5,6 +6,7 @@ library(ggplot2)
 #'@param n number of trials
 #'@param k number of successes
 #'@return the number of combinations in which k successes can occur in n trials
+#'@export
 bin_choose <- function(n,k) {
   if(k>n) {
     stop('k cannot be greater than n')
@@ -18,6 +20,7 @@ bin_choose <- function(n,k) {
 #'@param k number of successes
 #'@param p prob
 #'@return binomial probability
+#'@export
 bin_probability <- function(k,n,p) {
   if(!check_trials(n)) {
     stop('\ninvalid trials value')
@@ -36,6 +39,7 @@ bin_probability <- function(k,n,p) {
 #'@param n number of trials
 #'@param p prob
 #'@return two data.frame with two classes: c("binds", "data.frame")
+#'@export
 bin_distribution <- function(n,p) {
   prob <- c()
   for(i in 0:n) {
@@ -58,6 +62,7 @@ plot.bindis <- function(bindis) {
 #'@param n number of trials
 #'@param p prob
 #'@return return a data frame with both the probability distribution and the cumulative probabilities
+#'@export
 bin_cumulative <- function(n,p) {
   prob <- c()
   c <- 0
@@ -84,6 +89,7 @@ plot.bincum <- function(bincum) {
 #'@param n number of trials
 #'@param p prob
 #'@return return a list with named elements: trials: number of trials, prob: probability of success
+#'@export
 bin_variable <- function(n,p) {
   l <- list(trials = n, prob = p)
   class(l) <- "binvar"
